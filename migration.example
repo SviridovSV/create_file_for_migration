@@ -1,0 +1,27 @@
+class  < ActiveRecord::Migration
+  def self.up
+    sql = ActiveRecord::Base.connection()
+    sql.execute "SET autocommit=0"
+    sql.transaction do
+      # create_table :table_name, :force => true do |t|
+        # t.column :column_name, :string, :default => "", :limit => 255
+
+        # t.column :created_at, :datetime
+        # t.column :updated_at, :datetime
+      # end
+      # add_index :table_name, [:a_client_id, :a_outlet_register_id]
+
+      # add_column :table_name, :column_name, :datetime, :default => 0 rescue p("skipped")
+      # change_column(:table_name, :account_balance, :double) rescue p("skipped")
+      # rename_table (:runner_sql_bookmark, :runner_sql_bookmarks) rescue p("skipped")
+      # rename_column(:team_staffs, :p_type, :p_type_back)
+      # change_column_default :a_users, :client_as_prospect,
+    end
+    sql.execute "SET autocommit=1"
+  end
+
+  def self.down
+    # drop_table :table_name
+    # remove_column :table_name, :column_name
+  end
+end
